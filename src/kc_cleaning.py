@@ -3,7 +3,7 @@
 Refactored from the data preparation section of King-County.ipynb.
 """
 
-from __future__ import annotations
+#from __future__ import annotations
 
 import numpy as np
 import pandas as pd
@@ -11,12 +11,8 @@ import pandas as pd
 # Bedroom count of the implausible record in the dataset (33 bedrooms, 2 bathrooms).
 IMPLAUSIBLE_BEDROOMS = 33
 
-
+#Drop records that are almost certainly data-entry errors.
 def remove_implausible_rows(df: pd.DataFrame) -> pd.DataFrame:
-    """Drop records that are almost certainly data-entry errors.
-
-    Apply this to training data only. Do not call it at inference time.
-    """
     return df[df["bedrooms"] != IMPLAUSIBLE_BEDROOMS]
 
 
